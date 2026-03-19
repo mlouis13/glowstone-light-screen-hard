@@ -16,7 +16,12 @@
 				<form id="add-form" novalidate>
 					<h2>Add a light</h2>
 					<label for="light-name">Name (min. 3 characters)</label>
-					<input type="text" id="light-name" placeholder="e.g. Living Room" />
+					<input
+						required
+						type="text"
+						id="light-name"
+						placeholder="e.g. Living Room"
+					/>
 					<span id="name-error" class="error"></span>
 					<button type="submit">Add Light</button>
 				</form>

@@ -11,6 +11,8 @@
 
 * {
 	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
 html,
@@ -85,11 +87,6 @@ button {
 	cursor: pointer;
 }
 
-button.delete-btn {
-	background-color: #8b1a1a;
-	border-color: #5a0f0f;
-}
-
 .error {
 	color: tomato;
 	font-size: 0.85rem;
@@ -145,4 +142,43 @@ button.delete-btn {
 	padding: 2px 10px;
 	border: 2px solid currentColor;
 	border-radius: 99px;
+}
+.card {
+	background-color: var(--color-off);
+	border: solid 2px var(--color-on);
+	border-radius: 12px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+	padding: 24px;
+	border-radius: 8px;
+}
+.lighted {
+	background-color: var(--color-on);
+}
+.color-off {
+	color: var(--color-off);
+}
+.close {
+	background-color: #8b1a1a;
+	border-color: #5a0f0f;
+}
+.img {
+	width: 100px;
+	height: 100px;
+	border-radius: 12px;
+}
+.onoff {
+	padding: 8px 16px;
+	border: solid 1px var(--color-on);
+	border-radius: 12px;
+}
+.border-off {
+	border: solid 1px var(--color-off);
+	color: var(--text-on);
+}
+.border-on {
+	border: solid 1px var(--color-on);
+	color: var(--text-off);
 }
