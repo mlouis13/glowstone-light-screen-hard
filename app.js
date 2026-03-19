@@ -1,9 +1,15 @@
 const form = document.querySelector("form");
 const name = document.querySelector("input");
 const lightgrid = document.querySelector("#lights-grid");
-
+const stats = document.querySelector("#stats");
+const stats2 = document.querySelector("#stats2");
+let zero = 0;
+let zero2 = 0;
 form.addEventListener("submit", (e) => {
+	zero = zero + 1;
+	stats2.textContent = zero;
 	e.preventDefault();
+
 	createRoom();
 });
 function createRoom() {
@@ -33,6 +39,10 @@ function createRoom() {
 
 		close.addEventListener("click", () => {
 			card.remove();
+			zero2 = zero2 - 1;
+			zero = zero - 1;
+			stats2.textContent = zero;
+			stats.textContent = zero2;
 		});
 
 		light.addEventListener("click", () => {
@@ -45,6 +55,10 @@ function createRoom() {
 				onoff.textContent = "ON";
 				light.textContent = "Turn OFF";
 				isClicked = true;
+				zero2 = zero2 + 1;
+				zero = zero - 1;
+				stats2.textContent = zero;
+				stats.textContent = zero2;
 			} else {
 				card.classList.remove("lighted");
 				img.setAttribute("src", "assets/glowstone-off.webp");
@@ -54,6 +68,10 @@ function createRoom() {
 				onoff.textContent = "OFF";
 				light.textContent = "Turn ON";
 				isClicked = false;
+				zero2 = zero2 - 1;
+				zero = zero + 1;
+				stats2.textContent = zero;
+				stats.textContent = zero2;
 			}
 		});
 
@@ -69,3 +87,41 @@ function createRoom() {
 		console.log("3 caractere min");
 	}
 }
+const allOnBtn = document.querySelector("#all-on");
+const allOffBtn = document.querySelector("#all-off");
+
+allOnBtn.addEventListener("click", () => {
+	document.querySelectorAll(".card").forEach((card) => {
+		const light = card.querySelector(".light");
+		const img = card.querySelector(".img");
+		const onoff = card.querySelector(".onoff");
+		const namee = card.querySelector(".name");
+
+		card.classList.add("lighted");
+		img.setAttribute("src", "assets/glowstone-on.webp");
+		onoff.classList.add("border-off");
+		onoff.classList.remove("border-on");
+		namee.classList.add("color-off");
+		onoff.textContent = "ON";
+		light.textContent = "Turn OFF";
+		card._isClicked = true;
+	});
+});
+
+allOffBtn.addEventListener("click", () => {
+	document.querySelectorAll(".card").forEach((card) => {
+		const light = card.querySelector(".light");
+		const img = card.querySelector(".img");
+		const onoff = card.querySelector(".onoff");
+		const namee = card.querySelector(".name");
+
+		card.classList.remove("lighted");
+		img.setAttribute("src", "assets/glowstone-off.webp");
+		onoff.classList.remove("border-off");
+		onoff.classList.add("border-on");
+		namee.classList.remove("color-off");
+		onoff.textContent = "OFF";
+		light.textContent = "Turn ON";
+		card._isClicked = false;
+	});
+});
