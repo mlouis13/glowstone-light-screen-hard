@@ -39,10 +39,14 @@ function createRoom() {
 
 		close.addEventListener("click", () => {
 			card.remove();
-			zero2 = zero2 - 1;
-			zero = zero - 1;
-			stats2.textContent = zero;
-			stats.textContent = zero2;
+			if (isClicked === false) {
+				zero = zero - 1;
+				stats2.textContent = zero;
+			} else {
+				zero2 = zero2 - 1;
+
+				stats.textContent = zero2;
+			}
 		});
 
 		light.addEventListener("click", () => {
